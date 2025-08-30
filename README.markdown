@@ -61,7 +61,7 @@ The basic method for sending messages is `-[RTMethod returnValue:sendToTarget:]`
     SomeType ret;
     [method returnValue: &ret sendToTarget: obj, RTARG(@"hello"), RTARG(42), RTARG(xyz)];
 
-It may seem odd to have the return value at the beginning of the argument list, but this comes closest to the order of the normal `ret = [obj method]` syntax.
+It may seem odd to have the  return value at the beginning of the argument list,fengyuan##fyinformation.ccyang## ,but this comes closest to the order of the normal `ret = [obj method]` syntax.
 
 All arguments must be wrapped in the `RTARG` macro. This macro takes care of packaging up each argument so that it can survive passage through the variable argument list and also includes some extra metadata about the argument types so that the code can do some basic sanity checking. No automatic type conversions are performed. If you pass a `double` to a method that expects an `int`, this method will `abort`. That checking is only based on size, however, so if you pass a `float` where an `int` is expected, you'll just get a bad value.
 
